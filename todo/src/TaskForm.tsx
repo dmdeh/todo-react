@@ -1,12 +1,22 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-export function TaskForm() {
+interface onAdd {
+  // 컴포넌트의 props를 정의하는 곳에서 선언
+  onAdd: (name: string) => void;
+}
+
+export function TaskForm({ onAdd }: onAdd) {
   const [taskName, setTaskName] = useState("");
 
+  function handleSubmit(event: any) {
+    event.preventDefault();
+    onAdd(taskName);
+    setTaskName("");
+  }
+
   return (
-    <StyledForm>
+    <StyledForm onSubmit={handleSubmit}>
       <button>+</button>
       <input
         type="text"
@@ -21,11 +31,12 @@ export function TaskForm() {
 const StyledForm = styled.form`
   border: 3px solid #30313d;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
   display: flex;
 
   input[type="text"] {
     background: none;
+    color: white;
     border: 0px;
     padding: 0px 10px;
     display: block;
