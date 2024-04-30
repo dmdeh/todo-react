@@ -1,8 +1,9 @@
 import { styled } from "styled-components";
 import { TaskForm } from "./TaskForm";
 import { Task } from "./Task";
+import React from "react";
 
-function App() {
+export function App() {
   return (
     <Main>
       <TaskForm />
@@ -17,7 +18,7 @@ function App() {
 
 const Main = styled.div`
   max-width: 300px;
-  margin: 20px auto;
+  margin: 50px auto;
 `;
 
 export default App;

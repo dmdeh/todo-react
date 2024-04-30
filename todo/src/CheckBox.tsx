@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import React from "react";
 
 export function CheckBox({ defaultChecked = false }) {
   const [checked, setchecked] = useState(defaultChecked); // defaultChecked 다른이름으로는 오류남
