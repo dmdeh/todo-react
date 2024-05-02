@@ -17,22 +17,30 @@ function App() {
   }, []);
 
   function addTask(name) {
-    setTasks((prev) => {
-      return [...prev, { name: name, done: false }];
-    });
+    setTasks((prev) => [...prev, { name: name, done: false }]);
   }
 
-  function removeTask(index) {}
+  function removeTask(index) {
+    setTasks((prev) => prev.filter((el, idx) => idx !== index));
+  }
 
-  function updateTaskComplete(index, isComplete) {}
-
-  function renameTask(index, newName) {}
+  function updateTaskComplete(index, isComplete) {
+    setTasks((prev) => {
+      const newTasks = [...prev];
+      newTasks[index].done = isComplete;
+      return newTasks;
+    });
+  }
 
   return (
     <Main>
       <TaskForm onAdd={addTask} />
       {tasks.map((task, index) => (
-        <Task key={index} {...task}
+        <Task
+          key={index}
+          {...task}
+          onRemove={() => removeTask(index)}
+          onComplete={(isComplete) => updateTaskComplete(index, isComplete)}
         />
       ))}
     </Main>
@@ -42,6 +50,8 @@ function App() {
 const Main = styled.div`
   max-width: 300px;
   margin: 50px auto;
+  background-color: #17171f;
+  color: white;
 `;
 
 export default App;
