@@ -29,6 +29,7 @@ const StyledDiv = styled.div`
   margin-top: 5px;
   display: flex;
   align-items: center;
+  transition: opacity .3s linear;
   
   .task-done {
     opacity: 0.3;

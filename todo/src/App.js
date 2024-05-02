@@ -34,6 +34,7 @@ function App() {
 
   return (
     <Main>
+      <h1>🤜 오늘도 파이팅 🤛</h1>
       <TaskForm onAdd={addTask} />
       {tasks.map((task, index) => (
         <Task
@@ -52,6 +53,9 @@ const Main = styled.div`
   margin: 50px auto;
   background-color: #17171f;
   color: white;
+  h1 {
+    text-align: center;
+  }
 `;
 
 export default App;
