@@ -1,12 +1,9 @@
 import styled from "styled-components";
-import { useState } from "react";
 import React from "react";
 
-export function CheckBox({ defaultChecked = false }) {
-  const [checked, setchecked] = useState(defaultChecked); // defaultChecked 다른이름으로는 오류남
-
+export function CheckBox({ checked = false }) {
   return (
-    <StyledDiv>
+    <StyledDiv >
       {!checked && (
         <div className="checkbox unchecked">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-interface onAdd {
-  // 컴포넌트의 props를 정의하는 곳에서 선언
-  onAdd: (name: string) => void;
-}
-
-export function TaskForm({ onAdd }: onAdd) {
+export function TaskForm({ onAdd }) {
   const [taskName, setTaskName] = useState("");
 
-  function handleSubmit(event: any) {
+  function handleSubmit(event) {
     event.preventDefault();
     onAdd(taskName);
     setTaskName("");

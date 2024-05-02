@@ -3,11 +3,10 @@ import { CheckBox } from "./CheckBox";
 import { TaskProps } from "./App";
 import styled from "styled-components";
 
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export function Task({ name, done }: TaskProps) {
+export function Task({ name, done }) {
   return (
     <StyledDiv>
-      <CheckBox defaultChecked={done} />
+      <CheckBox checked={done}/>
       <span>{name}</span>
     </StyledDiv>
   );
